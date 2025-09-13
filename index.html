@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BBC NEWS Bangla</title>
+    <title>BBC News - বাংলা</title>
     <!-- daisyUI and Tailwind css cdn link  -->
      <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -11,6 +11,8 @@
      <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Favicon link -->
+     <link rel="shortcut icon" href="assets/bbc news.ico" type="image/x-icon">
     <style>
     *{
         font-family: "Noto Serif Bengali", serif;
@@ -18,8 +20,20 @@
     </style>
 </head>
 <body>
-    <header>
-        
+    <header class="">
+        <div class="bg-red-700 py-3">
+            <div class="max-w-7xl mx-auto px-5 md:ml-80">
+                <img src="assets/logo.svg" alt="logo" class="w-[230px] invert">
+            </div>
+        </div>
+        <nav class="border-b-2 border-gray-200 py-2">
+            <ul id="categories" class="flex flex-wrap items-center gap-7 text-md max-w-7xl mx-auto px-5 md:ml-80">
+                
+            </ul>
+        </nav>
+        <div class="bg-gray-100 w-full md:p-8">
+            <img src="assets/bannar.jpeg" alt="" class="w-[780px] mx-auto">
+        </div>
     </header>
     <main>
 
@@ -27,5 +41,8 @@
     <footer>
 
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
+
+
