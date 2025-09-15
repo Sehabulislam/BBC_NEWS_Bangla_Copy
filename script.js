@@ -30,6 +30,7 @@ const displayCategories = (categories)=>{
         })
 
         if(e.target.localName === "li"){
+            showLoading()
             // console.log(e.target.id);
             e.target.classList.add("border-b-4");
             loadCategoriesNews(e.target.id)
@@ -45,11 +46,15 @@ const loadCategoriesNews =async(newsid)=>{
         displayCategoriesNews(data.articles);
     }
     catch(error){
-        console.log(error);
+        showError();
     }
 }
 
 const displayCategoriesNews =(news)=>{
+    if(news.length === 0){
+        showEmptyMassage();
+        return;
+    }
     const newsContainer = document.getElementById("newsContainer");
     newsContainer.innerHTML = "";
     news.forEach(newsdata =>{
@@ -66,6 +71,31 @@ const displayCategoriesNews =(news)=>{
         `
         newsContainer.appendChild(div)
     })
+}
+const showLoading =()=>{
+    newsContainer.innerHTML = `
+    <div class="flex justify-center items-center py-30">
+                <span class="loading loading-bars loading-xl"></span>
+            </div>
+    `
+}
+const showError =()=>{
+    newsContainer.innerHTML = `
+    <div class="text-center col-span-full space-y-3">
+          <img src="assets/alert-error.png" alt="" class="m-auto">
+          <p class="text-md text-gray-500 font-bangla">Page not found</p>
+          <h2 class="text-4xl font-semibold font-bangla">নেক্সট Categories এ যান </h2>
+        </div>
+    `
+}
+const showEmptyMassage =()=>{
+    newsContainer.innerHTML =`
+    <div class="text-center col-span-full space-y-3">
+          <img src="assets/alert-error.png" alt="" class="m-auto">
+          <p class="text-md text-gray-500 font-bangla">এই Categories এ এখনো কোন News যুক্ত করা হয়নি।</p>
+          <h2 class="text-4xl font-semibold font-bangla">নেক্সট Categories এ যান </h2>
+        </div>
+    `
 }
 loadCategoriesNews("main");
 
